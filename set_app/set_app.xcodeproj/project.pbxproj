@@ -18,6 +18,7 @@
 		7A43D964219CF5C100891088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43D962219CF5C100891088 /* LaunchScreen.storyboard */; };
 		7A43D96F219CF5C100891088 /* set_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43D96E219CF5C100891088 /* set_appTests.swift */; };
 		7A43D97A219CF5C100891088 /* set_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43D979219CF5C100891088 /* set_appUITests.swift */; };
+		7A7FC5CB21AF986700D3F3FD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FC5CA21AF986700D3F3FD /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7A43D975219CF5C100891088 /* set_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = set_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43D979219CF5C100891088 /* set_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_appUITests.swift; sourceTree = "<group>"; };
 		7A43D97B219CF5C100891088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7FC5CA21AF986700D3F3FD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				7A4206AF21AB27EA001A7587 /* Deck.swift */,
 				7A4206B521AB32D0001A7587 /* Set.swift */,
 				7A4206B721AB3F42001A7587 /* InfiniteSet.swift */,
+				7A7FC5CA21AF986700D3F3FD /* Game.swift */,
 			);
 			path = set_app;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				7A4206B621AB32D0001A7587 /* Set.swift in Sources */,
 				7A4206B021AB27EA001A7587 /* Deck.swift in Sources */,
+				7A7FC5CB21AF986700D3F3FD /* Game.swift in Sources */,
 				7A4206B821AB3F42001A7587 /* InfiniteSet.swift in Sources */,
 				7A43D95C219CF5C000891088 /* ViewController.swift in Sources */,
 				7A4206AE21AB23F8001A7587 /* Card.swift in Sources */,
