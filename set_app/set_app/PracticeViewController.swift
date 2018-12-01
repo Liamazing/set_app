@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  PracticeViewController.swift
 //  set_app
 //
 //  Created by Mia Bendy on 12/1/18.
@@ -8,17 +8,16 @@
 
 import UIKit
 
-class GameViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+class PracticeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    var theGame:Set = Set()
-    var timer = Timer()
+
+    var theGame:InfiniteSet = InfiniteSet()
     
-    @IBOutlet weak var cardsLeft: UILabel!
-    @IBOutlet weak var theDisplayedCards: UICollectionView!
-    @IBOutlet weak var theNewGameButton: UIButton!
     @IBOutlet weak var numSets: UILabel!
-    @IBOutlet weak var displayTime: UILabel!
+    @IBOutlet weak var theDisplayedCards: UICollectionView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +26,6 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         theDisplayedCards.register(UINib(nibName: "TripleCardCollectionView", bundle: nil), forCellWithReuseIdentifier: "tripleCard")
         theDisplayedCards.dataSource = self
         theDisplayedCards.delegate = self
-        cardsLeft.text = "\(theGame.deck.count())"
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
 
@@ -36,6 +33,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return theGame.displayedCards.count
@@ -71,29 +69,12 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected card" )
         if theGame.selectCard(index: indexPath.item){
-            cardsLeft.text = "\(theGame.deck.count())"
             theDisplayedCards.reloadData()
             numSets.text = "Number of Sets: \(theGame.numSets)"
-            if theGame.gameOver(){
-                print("Game Over")
-                timer.invalidate()
-            }
         }
-        
     }
     
-    @objc func updateTimer() {
-        theGame.tick()
-        displayTime.text = "Time: \(theGame.getTimeString())"
-    }
-    
-    /*func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("deselected card")
-        theGame.deselectCard(index: indexPath.item)
-    }*/
-
     /*
     // MARK: - Navigation
 

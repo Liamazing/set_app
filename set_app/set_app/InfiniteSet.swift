@@ -11,7 +11,7 @@ import UIKit
 
 class InfiniteSet : Game{
     var discardDeck:Deck
-        //= Deck(cards: [])
+    
     
     override init(){
         let temp:[Card] = []
@@ -30,17 +30,34 @@ class InfiniteSet : Game{
         let card3:Card = displayedCards[index3]
         let isSet:Bool = self.isSet(card1: card1, card2: card2, card3: card3)
         if isSet{
-            discardDeck.addCard(card: displayedCards.remove(at: index1))
-            discardDeck.addCard(card: displayedCards.remove(at: index2))
-            discardDeck.addCard(card: displayedCards.remove(at: index3))
             numSets = numSets + 1
-            for _ in 0...2{
-                if deck.isEmpty(){
+            if displayedCards.count <= 12 {
+                discardDeck.addCard(card: displayedCards[index1])
+                discardDeck.addCard(card: displayedCards[index2])
+                discardDeck.addCard(card: displayedCards[index3])
+                if !deck.isEmpty(){
+                    displayedCards[index1] = deck.drawCard()
+                    displayedCards[index2] = deck.drawCard()
+                    displayedCards[index3] = deck.drawCard()
+                }
+                else{
                     deck = discardDeck
                     deck.shuffleDeck()
                     discardDeck = Deck(cards: [])
+                    displayedCards[index1] = deck.drawCard()
+                    displayedCards[index2] = deck.drawCard()
+                    displayedCards[index3] = deck.drawCard()
                 }
-                displayedCards.append(deck.drawCard())
+            }
+            else{
+                discardDeck.addCard(card: displayedCards[index1])
+                discardDeck.addCard(card: displayedCards[index2])
+                discardDeck.addCard(card: displayedCards[index3])
+                var indices = [index1, index2, index3]
+                indices.sort()
+                displayedCards.remove(at: indices[2])
+                displayedCards.remove(at: indices[1])
+                displayedCards.remove(at: indices[0])
             }
         }
         while noSets(){

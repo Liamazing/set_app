@@ -25,6 +25,7 @@
 		7A69DD7F21B3009D00616FA6 /* DoubleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */; };
 		7A69DD8121B300AB00616FA6 /* TripleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD8021B300AB00616FA6 /* TripleCard.swift */; };
 		7A69DD8321B3067C00616FA6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD8221B3067C00616FA6 /* GameViewController.swift */; };
+		7A69DD8721B32CF200616FA6 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD8621B32CF200616FA6 /* PracticeViewController.swift */; };
 		7A7FC5CB21AF986700D3F3FD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FC5CA21AF986700D3F3FD /* Game.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCard.swift; sourceTree = "<group>"; };
 		7A69DD8021B300AB00616FA6 /* TripleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripleCard.swift; sourceTree = "<group>"; };
 		7A69DD8221B3067C00616FA6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7A69DD8621B32CF200616FA6 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		7A7FC5CA21AF986700D3F3FD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */,
 				7A69DD8021B300AB00616FA6 /* TripleCard.swift */,
 				7A69DD8221B3067C00616FA6 /* GameViewController.swift */,
+				7A69DD8621B32CF200616FA6 /* PracticeViewController.swift */,
 			);
 			path = set_app;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				7A4206AE21AB23F8001A7587 /* Card.swift in Sources */,
 				7A69DD8121B300AB00616FA6 /* TripleCard.swift in Sources */,
 				7A43D95A219CF5C000891088 /* AppDelegate.swift in Sources */,
+				7A69DD8721B32CF200616FA6 /* PracticeViewController.swift in Sources */,
 				7A69DD8321B3067C00616FA6 /* GameViewController.swift in Sources */,
 				7A69DD7D21B3007800616FA6 /* SingleCard.swift in Sources */,
 			);

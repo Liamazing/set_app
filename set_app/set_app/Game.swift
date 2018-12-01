@@ -45,7 +45,10 @@ class Game{
     }
     
     func selectCard(index: Int)->Bool{
-        selectedCards.append(index)
+        print("in game selected card at index \(index)")
+        if !selectedCards.contains(index){
+            selectedCards.append(index)
+        }
         if selectedCards.count == 3 {
             removeSet(index1: selectedCards[0], index2: selectedCards[1], index3: selectedCards[2])
             selectedCards = []
@@ -57,8 +60,10 @@ class Game{
     }
     
     func deselectCard(index: Int){
-        if selectedCards.count != 0{
-            selectedCards.remove(at: index)
+        for num in 0..<selectedCards.count{
+            if selectedCards[num] == index{
+                selectedCards.remove(at: num)
+            }
         }
     }
     
