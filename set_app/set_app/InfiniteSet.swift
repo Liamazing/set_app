@@ -24,7 +24,7 @@ class InfiniteSet : Game{
     //if the cards are a set, then they're removed from the displayed cards and three new ones are added
     //if the cards are a set, also increments number of sets
     //if there are no sets after adding three new cards, it adds more cards until there is a set
-    func removeSet(index1:Int, index2:Int, index3:Int){
+    override func removeSet(index1:Int, index2:Int, index3:Int){
         let card1:Card = displayedCards[index1]
         let card2:Card = displayedCards[index2]
         let card3:Card = displayedCards[index3]

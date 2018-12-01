@@ -18,6 +18,13 @@
 		7A43D964219CF5C100891088 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43D962219CF5C100891088 /* LaunchScreen.storyboard */; };
 		7A43D96F219CF5C100891088 /* set_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43D96E219CF5C100891088 /* set_appTests.swift */; };
 		7A43D97A219CF5C100891088 /* set_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A43D979219CF5C100891088 /* set_appUITests.swift */; };
+		7A69DD7121B2FF1100616FA6 /* SingleCardCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69DD7021B2FF1100616FA6 /* SingleCardCollectionView.xib */; };
+		7A69DD7321B2FF1C00616FA6 /* DoubleCardCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69DD7221B2FF1C00616FA6 /* DoubleCardCollectionView.xib */; };
+		7A69DD7521B2FF2800616FA6 /* TripleCardCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69DD7421B2FF2800616FA6 /* TripleCardCollectionView.xib */; };
+		7A69DD7D21B3007800616FA6 /* SingleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD7C21B3007800616FA6 /* SingleCard.swift */; };
+		7A69DD7F21B3009D00616FA6 /* DoubleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */; };
+		7A69DD8121B300AB00616FA6 /* TripleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD8021B300AB00616FA6 /* TripleCard.swift */; };
+		7A69DD8321B3067C00616FA6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69DD8221B3067C00616FA6 /* GameViewController.swift */; };
 		7A7FC5CB21AF986700D3F3FD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FC5CA21AF986700D3F3FD /* Game.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +63,13 @@
 		7A43D975219CF5C100891088 /* set_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = set_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43D979219CF5C100891088 /* set_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_appUITests.swift; sourceTree = "<group>"; };
 		7A43D97B219CF5C100891088 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A69DD7021B2FF1100616FA6 /* SingleCardCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleCardCollectionView.xib; sourceTree = "<group>"; };
+		7A69DD7221B2FF1C00616FA6 /* DoubleCardCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoubleCardCollectionView.xib; sourceTree = "<group>"; };
+		7A69DD7421B2FF2800616FA6 /* TripleCardCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripleCardCollectionView.xib; sourceTree = "<group>"; };
+		7A69DD7C21B3007800616FA6 /* SingleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCard.swift; sourceTree = "<group>"; };
+		7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCard.swift; sourceTree = "<group>"; };
+		7A69DD8021B300AB00616FA6 /* TripleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripleCard.swift; sourceTree = "<group>"; };
+		7A69DD8221B3067C00616FA6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7A7FC5CA21AF986700D3F3FD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +132,13 @@
 				7A4206B521AB32D0001A7587 /* Set.swift */,
 				7A4206B721AB3F42001A7587 /* InfiniteSet.swift */,
 				7A7FC5CA21AF986700D3F3FD /* Game.swift */,
+				7A69DD7021B2FF1100616FA6 /* SingleCardCollectionView.xib */,
+				7A69DD7221B2FF1C00616FA6 /* DoubleCardCollectionView.xib */,
+				7A69DD7421B2FF2800616FA6 /* TripleCardCollectionView.xib */,
+				7A69DD7C21B3007800616FA6 /* SingleCard.swift */,
+				7A69DD7E21B3009D00616FA6 /* DoubleCard.swift */,
+				7A69DD8021B300AB00616FA6 /* TripleCard.swift */,
+				7A69DD8221B3067C00616FA6 /* GameViewController.swift */,
 			);
 			path = set_app;
 			sourceTree = "<group>";
@@ -244,6 +265,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A69DD7521B2FF2800616FA6 /* TripleCardCollectionView.xib in Resources */,
+				7A69DD7121B2FF1100616FA6 /* SingleCardCollectionView.xib in Resources */,
+				7A69DD7321B2FF1C00616FA6 /* DoubleCardCollectionView.xib in Resources */,
 				7A43D964219CF5C100891088 /* LaunchScreen.storyboard in Resources */,
 				7A43D961219CF5C100891088 /* Assets.xcassets in Resources */,
 				7A43D95F219CF5C000891088 /* Main.storyboard in Resources */,
@@ -276,8 +300,12 @@
 				7A7FC5CB21AF986700D3F3FD /* Game.swift in Sources */,
 				7A4206B821AB3F42001A7587 /* InfiniteSet.swift in Sources */,
 				7A43D95C219CF5C000891088 /* ViewController.swift in Sources */,
+				7A69DD7F21B3009D00616FA6 /* DoubleCard.swift in Sources */,
 				7A4206AE21AB23F8001A7587 /* Card.swift in Sources */,
+				7A69DD8121B300AB00616FA6 /* TripleCard.swift in Sources */,
 				7A43D95A219CF5C000891088 /* AppDelegate.swift in Sources */,
+				7A69DD8321B3067C00616FA6 /* GameViewController.swift in Sources */,
+				7A69DD7D21B3007800616FA6 /* SingleCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

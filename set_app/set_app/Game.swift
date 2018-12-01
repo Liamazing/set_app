@@ -13,6 +13,7 @@ class Game{
     var deck:Deck = Deck()
     var numSets:Int = 0
     var displayedCards:[Card]
+    var selectedCards:[Int] = []
     
     init(){
         var temp:[Card] = []
@@ -41,6 +42,28 @@ class Game{
         else{
             return false
         }
+    }
+    
+    func selectCard(index: Int)->Bool{
+        selectedCards.append(index)
+        if selectedCards.count == 3 {
+            removeSet(index1: selectedCards[0], index2: selectedCards[1], index3: selectedCards[2])
+            selectedCards = []
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func deselectCard(index: Int){
+        if selectedCards.count != 0{
+            selectedCards.remove(at: index)
+        }
+    }
+    
+    func removeSet(index1: Int, index2: Int, index3: Int){
+        fatalError("Must Override")
     }
     
     //checks if there are no sets in the cards displayed
