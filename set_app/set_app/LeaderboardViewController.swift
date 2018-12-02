@@ -38,30 +38,34 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         //FirebaseApp.configure()
         
         refLeaderboard = Database.database().reference().child("leaderboard")
-        //refLeaderboard.query
-        
-        refLeaderboard.queryOrdered(byChild: "leaderScore").observe(DataEventType.value, with: { (snapshot) in
-            
-            if snapshot.childrenCount > 0 {
+        //refLeaderboard.queryOrdered(byChild: "leaderScore").query
+        DispatchQueue.global().async{
+            self.refLeaderboard.queryOrdered(byChild: "leaderScore").observe(DataEventType.value, with: { (snapshot) in
                 
-                self.leaderList.removeAll()
-                for leaders in snapshot.children.allObjects as! [DataSnapshot] {
-                    let leaderObject = leaders.value as? [String: AnyObject]
-                    let leaderName = leaderObject?["leaderName"]
-                    let leaderScore = leaderObject?["leaderScore"]
-                    let leaderId = leaderObject?["id"]
+                if snapshot.childrenCount > 0 {
                     
-                    let leader = LeaderboardModel(id: leaderId as! String?, leaderName: leaderName as! String?, leaderScore: leaderScore as! Int?)
+                    self.leaderList.removeAll()
+                    for leaders in snapshot.children.allObjects as! [DataSnapshot] {
+                        let leaderObject = leaders.value as? [String: AnyObject]
+                        let leaderName = leaderObject?["leaderName"]
+                        let leaderScore = leaderObject?["leaderScore"]
+                        let leaderId = leaderObject?["id"]
+                        
+                        let leader = LeaderboardModel(id: leaderId as! String?, leaderName: leaderName as! String?, leaderScore: leaderScore as! Int?)
+                        
+                        self.leaderList.append(leader)
+                        
+                    }
                     
-                    self.leaderList.append(leader)
+                    DispatchQueue.main.async {
+                        self.leaderList.reverse()
+                        self.theTableView.reloadData()
+                    }
                     
                 }
-                self.leaderList.reverse()
-                self.theTableView.reloadData()
                 
-            }
-            
-        })
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
