@@ -1,20 +1,19 @@
 //
-//  LeaderboardTableViewCell.swift
+//  LeaderBoardTableViewCell.swift
 //  set_app
 //
-//  Created by Nicole Ouzounian on 12/2/18.
+//  Created by Mia Bendy on 12/2/18.
 //  Copyright © 2018 Mia Bendy. All rights reserved.
 //
 
 import UIKit
 
-class LeaderboardTableViewCell: UITableViewCell {
+class LeaderBoardTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerScore: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var name: UILabel!
     
-    
-    override func awakeFromNib() {
+    /*override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -23,6 +22,6 @@ class LeaderboardTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-
+    }*/
+    
 }

@@ -10,9 +10,9 @@ class LeaderboardModel {
     
     var id: String?
     var leaderName: String?
-    var leaderScore: String?
+    var leaderScore: Int?
     
-    init(id: String?, leaderName: String?, leaderScore: String?){
+    init(id: String?, leaderName: String?, leaderScore: Int?){
         self.id = id
         self.leaderName = leaderName
         self.leaderScore = leaderScore

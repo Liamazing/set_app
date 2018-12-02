@@ -43,32 +43,29 @@ class PracticeViewController: UIViewController, UICollectionViewDataSource, UICo
         let theCard:Card = theGame.displayedCards[indexPath.item]
         if theCard.number == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleCard", for: indexPath) as! SingleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
+            cell.contentView.layer.borderWidth = 0
             cell.setCard(card: theCard)
             return cell
             
         }
         else if theCard.number == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "doubleCard", for: indexPath) as! DoubleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
+            cell.contentView.layer.borderWidth = 0
             cell.setCard(card: theCard)
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripleCard", for: indexPath) as! TripleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
+            cell.contentView.layer.borderWidth = 0
             cell.setCard(card: theCard)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = theDisplayedCards.cellForItem(at: indexPath)!
+        cell.contentView.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.layer.borderWidth = 5
         if theGame.selectCard(index: indexPath.item){
             theDisplayedCards.reloadData()
             numSets.text = "Number of Sets: \(theGame.numSets)"

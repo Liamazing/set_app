@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class GameViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     
     var theGame:Set = Set()
     var timer = Timer()
+    var refLeaderboard: DatabaseReference!
     
-    @IBOutlet weak var cardsLeft: UILabel!
     @IBOutlet weak var theDisplayedCards: UICollectionView!
     @IBOutlet weak var theNewGameButton: UIButton!
     @IBOutlet weak var numSets: UILabel!
@@ -22,12 +24,13 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //FirebaseApp.configure()
+        refLeaderboard = Database.database().reference().child("leaderboard")
         theDisplayedCards.register(UINib(nibName: "SingleCardCollectionView", bundle: nil), forCellWithReuseIdentifier: "singleCard")
         theDisplayedCards.register(UINib(nibName: "DoubleCardCollectionView", bundle: nil), forCellWithReuseIdentifier: "doubleCard")
         theDisplayedCards.register(UINib(nibName: "TripleCardCollectionView", bundle: nil), forCellWithReuseIdentifier: "tripleCard")
         theDisplayedCards.dataSource = self
         theDisplayedCards.delegate = self
-        cardsLeft.text = "\(theGame.deck.count())"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }
@@ -45,26 +48,21 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
         let theCard:Card = theGame.displayedCards[indexPath.item]
         if theCard.number == 1{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "singleCard", for: indexPath) as! SingleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
             cell.setCard(card: theCard)
+            //cell.contentView.layer.borderColor = UIColor.black.cgColor
+            cell.contentView.layer.borderWidth = 0
             return cell
             
         }
         else if theCard.number == 2{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "doubleCard", for: indexPath) as! DoubleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
+            cell.contentView.layer.borderWidth = 0
             cell.setCard(card: theCard)
             return cell
         }
         else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripleCard", for: indexPath) as! TripleCard
-            let cellBGView = UIView()
-            cellBGView.backgroundColor = UIColor.blue
-            cell.selectedBackgroundView? = cellBGView
+            cell.contentView.layer.borderWidth = 0
             cell.setCard(card: theCard)
             return cell
         }
@@ -72,18 +70,48 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected card" )
+        let cell = theDisplayedCards.cellForItem(at: indexPath)!
+        cell.contentView.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.layer.borderWidth = 5
         if theGame.selectCard(index: indexPath.item){
-            cardsLeft.text = "\(theGame.deck.count())"
             theDisplayedCards.reloadData()
             numSets.text = "Number of Sets: \(theGame.numSets)"
             if theGame.gameOver(){
                 print("Game Over")
                 timer.invalidate()
+                let score = theGame.calcScore()
+                let addNewScore = UIAlertController(title: "Congratulations, your score is \(score)!", message: "Please enter your name", preferredStyle: .alert)
+                
+                addNewScore.addTextField { (textField) in
+                    textField.placeholder = "name"
+                }
+                
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    let name:String = (addNewScore.textFields?.first?.text)!
+                    self.addLeader(name: name, score: score)
+                }
+                addNewScore.addAction(okAction)
+                present(addNewScore, animated: true, completion: nil)
             }
         }
         
     }
     
+    func addLeader(name: String, score: Int){
+        //auto generate key
+        let key = refLeaderboard.childByAutoId().key!
+        let newScore = ["id":key,
+                        "leaderName": name,
+                        "leaderScore": score
+            ] as [String : Any]
+        refLeaderboard.child(key).setValue(newScore)
+        print("score added \(name)")
+    }
+    
+    @IBAction func newGame(_ sender: Any) {
+        theGame = Set()
+        numSets.text = "Number of Sets: \(theGame.numSets)"
+    }
     @objc func updateTimer() {
         theGame.tick()
         displayTime.text = "Time: \(theGame.getTimeString())"

@@ -26,7 +26,9 @@
             </view>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
+                <constraint firstItem="XcG-M2-veD" firstAttribute="top" secondItem="yG0-Gt-lxd" secondAttribute="top" constant="9" id="95S-PO-HGS"/>
                 <constraint firstAttribute="bottom" secondItem="XcG-M2-veD" secondAttribute="bottom" constant="8" id="OCN-uA-ZXP"/>
+                <constraint firstAttribute="bottom" secondItem="XcG-M2-veD" secondAttribute="bottom" constant="8" id="jre-P2-fal"/>
                 <constraint firstAttribute="trailing" secondItem="XcG-M2-veD" secondAttribute="trailing" constant="38" id="ndF-G7-4ZT"/>
                 <constraint firstItem="XcG-M2-veD" firstAttribute="top" secondItem="yG0-Gt-lxd" secondAttribute="top" constant="9" id="p3U-5l-NhB"/>
                 <constraint firstItem="XcG-M2-veD" firstAttribute="leading" secondItem="yG0-Gt-lxd" secondAttribute="leading" constant="38" id="uDl-Fo-kEM"/>

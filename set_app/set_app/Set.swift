@@ -100,4 +100,13 @@ class Set : Game{
     }
     
     
+    func calcScore()->Int{
+        let score:Double = (3600 - Double(self.seconds))*(Double(self.numSets)/27)
+        var intScore:Int = Int(score)
+        if intScore < 0 {
+            intScore = 0
+        }
+        return intScore
+    }
+    
 }
