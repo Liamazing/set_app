@@ -11,16 +11,7 @@ import UIKit
 
 class Set : Game{
     
-    /*
-    var started:Date
-    var elapsedTime:TimeInterval?*/
     var seconds = 0
-    /*
-    //constructs a classic set game
-    override init(){
-        //started = Date()
-        super.init()
-    }*/
     
     //pass thru index of cards in displayedCards to determine if it is a set
     //if the cards are a set, then they're removed from the displayed cards and three new ones are added, and increments number of sets

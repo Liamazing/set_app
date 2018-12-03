@@ -111,6 +111,7 @@ class GameViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBAction func newGame(_ sender: Any) {
         theGame = Set()
         numSets.text = "Number of Sets: \(theGame.numSets)"
+        theDisplayedCards.reloadData()
     }
     
     //update the timer

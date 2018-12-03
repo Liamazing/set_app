@@ -64,15 +64,6 @@ class Game{
         }
     }
     
-    /*
-    func deselectCard(index: Int){
-        for num in 0..<selectedCards.count{
-            if selectedCards[num] == index{
-                selectedCards.remove(at: num)
-            }
-        }
-    }*/
-    
     //this function must be overriden in subclasses
     func removeSet(index1: Int, index2: Int, index3: Int){
         fatalError("Must Override")
