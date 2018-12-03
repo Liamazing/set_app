@@ -78,10 +78,12 @@ class Deck{
         cards.append(card)
     }
     
+    //returns number of cards left in the deck
     func count()->Int{
         return cards.count
     }
     
+    //returns true if deck is empty
     func isEmpty()->Bool{
         return (cards.count == 0)
     }

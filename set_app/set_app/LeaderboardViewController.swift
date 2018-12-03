@@ -10,36 +10,33 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+//view controller for the leaderboard
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var theTableView: UITableView!
     var leaderList:[LeaderboardModel] = []
     var refLeaderboard:DatabaseReference!
     
+    //number of people in the leaderboard
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return leaderList.count
     }
     
+    //makes a cell for the leaderboard for each leader
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("making a cell")
         let cell =  theTableView.dequeueReusableCell(withIdentifier: "leaderboardCell", for: indexPath) as! LeaderBoardTableViewCell
         cell.name.text = leaderList[indexPath.row].leaderName!
         cell.score.text = String(leaderList[indexPath.row].leaderScore!)
         return cell
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         theTableView.delegate = self
         theTableView.dataSource = self
         theTableView.register(UINib(nibName: "LeaderBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "leaderboardCell")
-        // Do any additional setup after loading the view.
-        //FirebaseApp.configure()
-        
         refLeaderboard = Database.database().reference().child("leaderboard")
-        //refLeaderboard.queryOrdered(byChild: "leaderScore").query
-        DispatchQueue.global().async{
+        DispatchQueue.global().async{ //asynchronously get the leaderboard data
             self.refLeaderboard.queryOrdered(byChild: "leaderScore").observe(DataEventType.value, with: { (snapshot) in
                 
                 if snapshot.childrenCount > 0 {
@@ -57,7 +54,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                         
                     }
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { //reload the data for the table view
                         self.leaderList.reverse()
                         self.theTableView.reloadData()
                     }
@@ -70,18 +67,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

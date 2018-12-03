@@ -8,16 +8,12 @@
 
 import UIKit
 
+//view controller for practice/infinite mode
 class PracticeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    
-
-    var theGame:InfiniteSet = InfiniteSet()
+    var theGame:InfiniteSet = InfiniteSet() //has a game of infinite set
     
     @IBOutlet weak var numSets: UILabel!
     @IBOutlet weak var theDisplayedCards: UICollectionView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +22,18 @@ class PracticeViewController: UIViewController, UICollectionViewDataSource, UICo
         theDisplayedCards.register(UINib(nibName: "TripleCardCollectionView", bundle: nil), forCellWithReuseIdentifier: "tripleCard")
         theDisplayedCards.dataSource = self
         theDisplayedCards.delegate = self
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    //returns number of cards in the displayed cards array
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return theGame.displayedCards.count
     }
     
+    //at each place in displayed cards makes a view cell for that card
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let theCard:Card = theGame.displayedCards[indexPath.item]
         if theCard.number == 1{
@@ -62,24 +57,16 @@ class PracticeViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
+    //for when a card is selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = theDisplayedCards.cellForItem(at: indexPath)!
-        cell.contentView.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.layer.borderColor = UIColor.black.cgColor //update border color and width to show user has selected that card
         cell.contentView.layer.borderWidth = 5
-        if theGame.selectCard(index: indexPath.item){
-            theDisplayedCards.reloadData()
-            numSets.text = "Number of Sets: \(theGame.numSets)"
+        if theGame.selectCard(index: indexPath.item){ //if the player has selected three cards
+            theDisplayedCards.reloadData() //reload the data as a set may have disappeared, or the cards should become unselected (border disappears)
+            numSets.text = "Number of Sets: \(theGame.numSets)" //update number of sets found
         }
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

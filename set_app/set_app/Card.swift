@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 struct Card {
     enum Shape{
         case circle, triangle, square

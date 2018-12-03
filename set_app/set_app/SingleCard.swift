@@ -8,6 +8,7 @@
 
 import UIKit
 
+//colleciton view cell for a set card with one shape 
 class SingleCard: UICollectionViewCell {
     private var theCard:Card?
     @IBOutlet weak var imageOne: UIImageView!

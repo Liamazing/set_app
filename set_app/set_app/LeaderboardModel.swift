@@ -6,6 +6,7 @@
 //  Copyright © 2018 Mia Bendy. All rights reserved.
 //
 
+//model for our leaderboard from the database 
 class LeaderboardModel {
     
     var id: String?

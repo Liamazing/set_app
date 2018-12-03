@@ -8,6 +8,7 @@
 
 import UIKit
 
+//colleciton view cell for a set card with two shapes
 class DoubleCard: UICollectionViewCell {
     private var theCard:Card?
     @IBOutlet weak var imageOne: UIImageView!
