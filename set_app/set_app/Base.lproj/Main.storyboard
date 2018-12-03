@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="2797.5999999999999" y="-693.10344827586209"/>
         </scene>
-        <!--NEW NEW Leaderboard-->
+        <!--Leaderboard-->
         <scene sceneID="FiC-Kx-pMn">
             <objects>
-                <viewController title="NEW NEW Leaderboard" id="p07-NX-qXu" customClass="LeaderboardViewController" customModule="set_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Leaderboard" id="p07-NX-qXu" customClass="LeaderboardViewController" customModule="set_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0x1-dJ-aHO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,10 +320,10 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qj3-yg-1cg">
                                         <rect key="frame" x="4" y="265" width="367" height="265"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">A SET consists of 3 cards that either have all of the same or all different features when each feature is looked at one-by-one. In other words, shape must all be the same or different, color must all be the same or different, number must all be the same or different, and shading must all be the same or different. 
+                                        <string key="text">A SET consists of 3 cards that either have all of the same or all different features when each feature is looked at one-by-one. In other words, shape must all be the same or different, color must all be the same or different, number must all be the same or different, and shading must all be the same or different. 
 
 Scoring:
-The game will come to an end once the deck runs out and no more SETs can be made. Then, based on the number of SETs that were found and the time it took to complete the game, a score will be calculated. You will then be able to store a player name with the score to be displayed on a global leaderboard among other players.</mutableString>
+The game will come to an end once the deck runs out and no more SETs can be made. Then, based on the number of SETs that were found and the time it took to complete the game, a score will be calculated. You will then be able to store a player name with the score to be displayed on a global leaderboard among other players.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
